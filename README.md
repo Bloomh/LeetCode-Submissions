@@ -1,4 +1,4 @@
-# LeetCode-Submissions
+# LeetCode Submissions
 This repository contains a collection of LeetCode questions I've submitted starting in September 2022! - The problems are automatically uploaded using [LeetHub](https://github.com/QasimWani/LeetHub).
 
 Since this does not contain all of the LeetCode problems I have completed (only those submitted after August 2022), I have included some of my LeetCode statistics below (last updated 9/1/22):
