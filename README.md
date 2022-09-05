@@ -3,10 +3,10 @@ This repository contains a collection of LeetCode questions I've submitted start
 
 Since this does not contain all of the LeetCode problems I have completed (only those submitted after August 2022), I have included some of my LeetCode statistics below (last updated 9/1/22):
 
-### Problems Completed: 302 
-* Easy Problems Completed: 138
-* Medium Problems Completed: 158
-* Hard Problems Completed: 6
+### Problems Completed: 309
+* Easy Problems Completed: 139
+* Medium Problems Completed: 163
+* Hard Problems Completed: 7
 
 ### Study Plans Completed: 9
 * Algorithms I-II
