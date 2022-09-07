@@ -5,6 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    @lru_cache
     def dfs(self,node,trg):
         ans = 0
         if not node:
