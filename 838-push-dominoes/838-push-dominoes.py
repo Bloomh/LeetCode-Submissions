@@ -19,8 +19,6 @@ class Solution:
                     lft.append(min(lft[-1]+1,float('inf')))
             else:
                 lft.append(float('inf'))
-            # rght.append((dominoes[i-1]=='R' or rght[i-1]) and dominoes[i]!='L')
-            # lft.append((dominoes[-i]=='L' or lft[i-1]) and dominoes[-i-1]!='R')
         lft = lft[::-1]
         ans = ""
         for i in range(n):
