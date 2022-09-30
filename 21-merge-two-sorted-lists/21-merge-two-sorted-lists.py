@@ -5,16 +5,14 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        if not list1 and not list2:
-            return None
-        nodes = []
-        while list1:
-            nodes.append(list1)
-            list1 = list1.next
-        while list2:
-            nodes.append(list2)
-            list2 = list2.next
-        nodes.sort(key = lambda x:x.val)
-        for i in range(len(nodes)-1):
-            nodes[i].next = nodes[i+1]
-        return nodes[0]
+        start = curr = ListNode(0) #an empty node at the start – curr will go through all the nodes in the joint list while start will point to the beginning of the list
+        while list1 and list2: #while both lists exist
+            if list1.val <= list2.val: #if list1 has the smaller value (or equal)
+                curr.next = list1 #make it the next node in the list
+                list1 = list1.next #move forward in the list
+            else: #otherwise do the same but with list2
+                curr.next = list2 
+                list2 = list2.next
+            curr = curr.next #move forward in the joint list
+        curr.next = list1 or list2 #point to whichever list is remaining
+        return start.next #return the joint list (start points to it)
