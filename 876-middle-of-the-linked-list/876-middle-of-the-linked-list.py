@@ -5,11 +5,9 @@
 #         self.next = next
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        runner = head #runner to find the length of the linked list
-        length = 0 #length of list
-        while runner:
-            length += 1 #add 1 to the length whenever we still have a node
-            runner = runner.next
-        for i in range(length//2): #go halfway through the linked list
-            head = head.next
-        return head #return the middle node
+        slow = head #this will go forward 1 at a time
+        fast = head #move forward 2 at a time
+        while fast and fast.next: #while our fast node exists and isn't the last node
+            slow = slow.next #slow pointer moves forward just 1 spot
+            fast = fast.next.next #fast pointer moves forward by two
+        return slow #slow should be in the middle!
