@@ -6,10 +6,14 @@
 
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        nodes = set() #keep track of the nodes
-        while head:
-            if head in nodes: #if the head is already in our set then we have a cycle
-                return head
-            nodes.add(head) #add node to our list
-            head = head.next
-        return None #no cycle found!
+        slow = head #slow pointer
+        fast = head #fast poiner
+        while fast and fast.next: #while fast is not at the end of the list
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast: #if we encountered a cycle
+                while head!=slow: #move head and slow forward until they meet
+                    head = head.next
+                    slow = slow.next
+                return slow #this is the start of the cycle!
+        return None #no cycle
