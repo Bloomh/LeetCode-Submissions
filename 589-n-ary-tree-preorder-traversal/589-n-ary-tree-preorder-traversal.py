@@ -8,8 +8,14 @@ class Node:
 
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
-        if root:
-            ans = [root.val] # add this node to the preorder traversal
-            for node in root.children:
-                ans.extend(self.preorder(node)) #add the preorder traversal of each child
-            return ans
+        if not root:
+            return None
+        stack = [root]
+        ans = []
+        while stack:
+            node = stack.pop()
+            ans.append(node.val)
+            for i in range(len(node.children)):
+                stack.append(node.children[-1-i])
+        return ans
+    
