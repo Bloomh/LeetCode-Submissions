@@ -11,5 +11,5 @@ class Solution:
         if root:
             ans = [root.val] # add this node to the preorder traversal
             for node in root.children:
-                ans += self.preorder(node) #add the preorder traversal of each child
+                ans.extend(self.preorder(node)) #add the preorder traversal of each child
             return ans
