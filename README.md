@@ -3,9 +3,9 @@ This repository contains a collection of LeetCode questions I've submitted start
 
 Since this does not contain all of the LeetCode problems I have completed (only those submitted after August 2022), I have included some of my LeetCode statistics below (last updated 10/1/22):
 
-### Problems Completed: 361
-* Easy Problems Completed: 156
-* Medium Problems Completed: 191
+### Problems Completed: 363
+* Easy Problems Completed: 157
+* Medium Problems Completed: 192
 * Hard Problems Completed: 14
 
 ### Study Plans Completed: 10
@@ -16,6 +16,6 @@ Since this does not contain all of the LeetCode problems I have completed (only 
 * Dynamic Programming I
 * Binary Search I
 
-I also post solutions on LeetCode to some of the problems from the study plans I have completed. Currently, I have posted 19 solutions, many with a detailed explanation of how to think about the problem and various approaches!
+I also post solutions on LeetCode to some of the problems from the study plans I have completed. Currently, I have posted 27 solutions, many with a detailed explanation of how to think about the problem and various approaches!
 
 For more in-depth statistics, you can view my LeetCode account [here](https://leetcode.com/bloomh/).
