@@ -6,10 +6,10 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        seen = []
+        seen = set()
         while head:
             if head in seen:
                 return True
-            seen.append(head)
+            seen.add(head)
             head = head.next
         return False
