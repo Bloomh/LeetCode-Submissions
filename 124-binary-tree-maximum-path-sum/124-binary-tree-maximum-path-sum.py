@@ -5,22 +5,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    def dfs(self,node): #dfs
+        if not node:
+            return 0
+        left = self.dfs(node.left)
+        if left < 0:
+            left = 0
+        right = self.dfs(node.right)
+        if right < 0:
+            right = 0
+        if node.val + right + left > self.ans:
+            self.ans = node.val + right + left
+        if right < left:
+            right = left
+        return node.val + right
     def maxPathSum(self, root: TreeNode) -> int:
-        max_path = float("-inf") # placeholder to be updated
-        def get_max_gain(node):
-            nonlocal max_path # This tells that max_path is not a local variable
-            if node is None:
-                return 0
-
-            gain_on_left = max(get_max_gain(node.left), 0) # Read the part important observations
-            gain_on_right = max(get_max_gain(node.right), 0)  # Read the part important observations
-
-            current_max_path = node.val + gain_on_left + gain_on_right # Read first three images of going down the recursion stack
-            max_path = max(max_path, current_max_path) # Read first three images of going down the recursion stack
-
-            return node.val + max(gain_on_left, gain_on_right) # Read the last image of going down the recursion stack		
-        get_max_gain(root) # Starts the recursion chain
-        return max_path		
+        self.ans = float('-inf') #answer  
+        self.dfs(root) #dfs on root
+        return self.ans
 
         
             
