@@ -12,4 +12,4 @@ class Solution:
             return targetSum == root.val #see if this is the number we need
         left = self.hasPathSum(root.left,targetSum-root.val) #see if we can make the pathsum with the left subtree
         right = self.hasPathSum(root.right,targetSum-root.val) #check right subtree
-        return left or right #return 
+        return left or right #return if we can make a pathsum on either side
