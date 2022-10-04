@@ -20,7 +20,7 @@ class Solution:
             right = left
         return node.val + right
     def maxPathSum(self, root: TreeNode) -> int:
-        self.ans = float('-inf') #answer  
+        self.ans = root.val #answer  
         self.dfs(root) #dfs on root
         return self.ans
 
