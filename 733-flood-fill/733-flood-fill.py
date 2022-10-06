@@ -5,12 +5,12 @@ class Solution:
             return image
         m = len(image)
         n = len(image[0])
-        stack = [(sr,sc)]
-        while stack:
-            (r,c) = stack.pop()
+        queue = collections.deque([(sr,sc)])
+        while queue:
+            (r,c) = queue.popleft()
             image[r][c] = color
             for (row,col) in [(r-1,c),(r+1,c),(r,c-1),(r,c+1)]:
                 if 0<=row<m and 0<=col<n and image[row][col] == start_color:
-                    stack.append((row,col))
+                    queue.append((row,col))
         return image
             
