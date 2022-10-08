@@ -1,23 +1,33 @@
 class Solution:
-    def threeSumClosest(self, num, target):
-        num.sort() #sort
-        result = num[0] + num[1] + num[2] #start w this result
-        n = len(num) #length
-        for i in range(n - 2): #iterate through rest
-            if i > 0 and num[i] == num[i-1]: #if multiple in a row then we will explore this possibility another time
-                continue
-            j, k = i+1, n - 1 #1 after the element up to the end
-            while j < k: #iterate up to when the sliding window collapses
-                sm = num[i] + num[j] + num[k] #temp new sum
-                if sm == target:
-                    return sm #return answer if we can get it perfectly
-                
-                if abs(sm - target) < abs(result - target): #update answer if we have better
-                    result = sm 
-                
-                if sm < target: #if too small then move middle up
-                    j += 1
-                elif sm > target: #if too big then move right down
-                    k -= 1
-            
-        return result
+    def twoSumClosest(self,nums,target):
+        l, r = 0, len(nums)-1
+        ans = nums[0] + nums[1]
+        diff = abs(ans - target)
+        while l<r:
+            total = nums[l] + nums[r]
+            if total == target:
+                return target
+            else:
+                if total > target:
+                    r -= 1
+                    if total - target < diff:
+                        ans = total
+                        diff = total - target
+                else:
+                    l += 1
+                    if target - total < diff:
+                        ans = total
+                        diff = target - total
+        return ans
+    
+    def threeSumClosest(self, nums: List[int], target: int) -> int:
+        ans = nums[0] + nums[1] + nums[2]
+        nums.sort()
+        for i in range(len(nums)-2):
+            last = nums.pop()
+            twoClose = self.twoSumClosest(nums,target-last)
+            if abs(last + twoClose - target) < abs(ans - target):
+                ans = last + twoClose
+            if ans == target:
+                return target
+        return ans
