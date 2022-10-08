@@ -1,6 +1,11 @@
 class Solution:
-    @cache
     def uniquePaths(self, m: int, n: int) -> int:
-        if m == 1 or n == 1: # if there is one column or one row, there is only one path
-            return 1
-        return self.uniquePaths(m-1,n) + self.uniquePaths(m,n-1) # you can come from above (m-1) or the left (n-1)
+        dp = []
+        for i in range(m):
+            dp.append([]) # add a new row
+            for j in range(n):
+                if i == 0 or j == 0:
+                    dp[i].append(1) # base case – 1 possibility
+                else:
+                    dp[i].append(dp[i-1][j] + dp[i][j-1]) # recursive relationship
+        return dp[-1][-1]
