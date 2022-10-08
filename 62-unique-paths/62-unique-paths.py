@@ -8,4 +8,4 @@ class Solution:
                     dp[i].append(1) # base case – 1 possibility
                 else:
                     dp[i].append(dp[i-1][j] + dp[i][j-1]) # recursive relationship
-        return dp[-1][-1]
+        return dp[m-1][n-1]
