@@ -6,19 +6,9 @@
 #         self.right = right
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        leftSide = collections.deque([root.left])
-        rightSide = collections.deque([root.right])
-        while leftSide and rightSide:
-            left = leftSide.popleft()
-            right = rightSide.popleft()
-            if left and right:
-                if not left.val == right.val:
-                    return False
-                leftSide.append(left.left)
-                leftSide.append(left.right)
-                rightSide.append(right.right)
-                rightSide.append(right.left)
-            elif left or right:
-                return False
-        return not leftSide and not rightSide
+        def checkSymmetry(left,right):
+            if left and right and left.val == right.val:
+                return checkSymmetry(left.left,right.right) and checkSymmetry(left.right,right.left)
+            return not left and not right
+        return checkSymmetry(root.left, root.right)
         
