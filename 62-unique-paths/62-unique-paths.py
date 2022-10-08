@@ -1,11 +1,10 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        dp = []
-        for i in range(m):
-            dp.append([]) # add a new row
-            for j in range(n):
-                if i == 0 or j == 0:
-                    dp[i].append(1) # base case – 1 possibility
-                else:
-                    dp[i].append(dp[i-1][j] + dp[i][j-1]) # recursive relationship
-        return dp[m-1][n-1]
+        if m > n:
+            m,n = n,m
+        def product(arr):
+            prod = 1
+            for num in arr:
+                prod *= num
+            return prod
+        return product(range(m,m+n-1))//product(range(1,n))
