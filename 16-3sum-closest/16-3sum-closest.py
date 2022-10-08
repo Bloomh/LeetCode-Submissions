@@ -22,12 +22,15 @@ class Solution:
     
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         ans = nums[0] + nums[1] + nums[2]
+        diff = abs(ans - target)
         nums.sort()
         for i in range(len(nums)-2):
             last = nums.pop()
             twoClose = self.twoSumClosest(nums,target-last)
-            if abs(last + twoClose - target) < abs(ans - target):
+            newDiff = abs(last + twoClose - target)
+            if newDiff < diff:
                 ans = last + twoClose
+                diff = newDiff
             if ans == target:
                 return target
         return ans
