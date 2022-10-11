@@ -1,12 +1,14 @@
 class Solution:
     def decodeString(self, s: str) -> str:
-        if not s or s.isalpha(): # if just characters then return the string
-            return s
+        if not s:
+            return ""
         i = 0 # pointer to go through string
         start = "" # characters at the start of the string
         while s[i].isalpha(): # while it is a character
             start += s[i] # add this to the start
             i += 1 # move forward
+            if i == len(s):
+                return start
         k = "" # k -- the number of times to repeat the next segment
         while s[i].isdigit(): # while looking at a number
             k += s[i] # add it to the end of k
