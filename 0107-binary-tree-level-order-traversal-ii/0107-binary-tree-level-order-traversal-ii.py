@@ -6,13 +6,14 @@
 #         self.right = right
 class Solution:
     def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
-        ans = []
-        def dfs(node,level):
-            if node:
-                if level >= len(ans):
-                    ans.append([])
-                ans[level].append(node.val)
-                dfs(node.left,level+1)
-                dfs(node.right,level+1)
-        dfs(root,0)
-        return ans[::-1]
+        queue = collections.deque([(root,0)]) #queue of nodes to look at
+        ans = [] #answer queue
+        while queue: #while we have nodes to look at
+            node,level = queue.popleft() #get the next node and its level
+            if node: #we only care if there is a node --> it may be None, which we want to avoid
+                if level >= len(ans): #if there arent enough levels in our array
+                    ans = [[]] + ans #add a new level at the start
+                ans[-level-1].append(node.val) #add this value to the level (level goes from the back of the array since it is in reverse)
+                queue.append((node.left,level+1)) #add left child to queue
+                queue.append((node.right,level+1)) #add right child to queue
+        return ans # reverse result
