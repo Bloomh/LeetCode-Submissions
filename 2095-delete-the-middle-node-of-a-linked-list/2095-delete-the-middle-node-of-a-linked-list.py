@@ -5,15 +5,15 @@
 #         self.next = next
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        nodes = [] #array to keep track of the nodes
-        while head:
-            nodes.append(head) #add the nodes to our array
-            head = head.next
-        if len(nodes) == 1: # if there is only one node then the linked list becomes empty
+        runner = head #runner to find the length of the linked list
+        length = 0 #length of list
+        while runner:
+            length += 1 #add 1 to the length whenever we still have a node
+            runner = runner.next
+        runner = head # reset the runner back to the head
+        if length == 1: # once again if there is only one node, the list becomes empty
             return None
-        middle = len(nodes)//2 # middle index
-        if middle == len(nodes) - 1: # if the middle node is also the last node
-            nodes[middle-1].next = None # then we have the node before it point to None
-        else:
-            nodes[middle-1].next = nodes[middle+1] # have the node before the middle point to the node after the middle
-        return nodes[0] # return the head of the list
+        for i in range(length//2-1): #go halfway through the linked list
+            runner = runner.next
+        runner.next = runner.next.next # skip the next node (the middle node)
+        return head #return the middle node
