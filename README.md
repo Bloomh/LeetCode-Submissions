@@ -3,12 +3,12 @@ This repository contains a collection of LeetCode questions I've submitted start
 
 Since this does not contain all of the LeetCode problems I have completed (only those submitted starting 9/1/2022), I have included some of my LeetCode statistics below (last updated 10/15/22):
 
-### Problems Completed: 391
+#### Problems Completed: 391
 * Easy Problems Completed: 167
 * Medium Problems Completed: 206
 * Hard Problems Completed: 18
 
-### Study Plans Completed: 10
+#### Study Plans Completed: 10
 * Algorithms I-II
 * Data Structures I-II
 * Programming Skills I-II
@@ -19,7 +19,7 @@ Since this does not contain all of the LeetCode problems I have completed (only 
 #### I also post solutions on LeetCode to some of the problems from the study plans I have completed. Currently, I have posted 77 solutions, many with a detailed explanation of how to think about the problem and various approaches!
 
 #### Lastly, here are my placements in LeetCode contests, which altogether put me in the top 14.65% of participants:
-* Weekly Contest 314 (Oct 8, 2022): Rank 1832 out of 22620
 * Weekly Contest 315 (Oct 15, 2022): Rank 2334 out of 23448
+* Weekly Contest 314 (Oct 8, 2022): Rank 1832 out of 22620
 
 For more in-depth statistics, you can view my LeetCode account [here](https://leetcode.com/bloomh/).
