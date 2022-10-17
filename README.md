@@ -1,12 +1,12 @@
 # LeetCode Submissions
 This repository contains a collection of LeetCode questions I've submitted starting in September 2022! - The problems are automatically uploaded using [LeetHub](https://github.com/QasimWani/LeetHub).
 
-Since this does not contain all of the LeetCode problems I have completed (only those submitted starting 9/1/2022), I have included some of my LeetCode statistics below (last updated 10/16/22):
+Since this does not contain all of the LeetCode problems I have completed (only those submitted starting 9/1/2022), I have included some of my LeetCode statistics below (last updated 10/17/22):
 
-#### Problems Completed: 397
+#### Problems Completed: 400
 * Easy Problems Completed: 172
-* Medium Problems Completed: 207
-* Hard Problems Completed: 18
+* Medium Problems Completed: 208
+* Hard Problems Completed: 20
 
 #### Study Plans Completed: 10
 * Algorithms I-II
@@ -16,7 +16,7 @@ Since this does not contain all of the LeetCode problems I have completed (only 
 * Dynamic Programming I
 * Binary Search I
 
-#### I also post solutions on LeetCode to some of the problems from the study plans I have completed. Currently, I have posted 82 solutions, many with a detailed explanation of how to think about the problem and various approaches!
+#### I also post solutions on LeetCode to some of the problems from the study plans I have completed. Currently, I have posted 83 solutions, many with a detailed explanation of how to think about the problem and various approaches!
 
 #### Lastly, here are my placements in LeetCode contests, which altogether put me in the top 14.65% of participants:
 * Weekly Contest 315 (Oct 15, 2022): Rank 2334 out of 23449
