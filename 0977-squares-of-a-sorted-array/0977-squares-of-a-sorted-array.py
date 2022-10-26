@@ -1,3 +1,6 @@
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        return sorted([num**2 for num in nums])
+        nums.sort(key = abs) # sort by absolute value
+        for i in range(len(nums)):
+            nums[i] = nums[i]**2 # square each value
+        return nums
