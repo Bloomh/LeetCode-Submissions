@@ -1,11 +1,8 @@
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        n = len(nums)
-        z = i = 0
-        while i < n - z:
-            if nums[i] == 0:
-                nums.pop(i)
-                nums.append(0)
-                z += 1
+        numZeroes = 0
+        for i, num in enumerate(nums):
+            if num == 0:
+                numZeroes += 1
             else:
-                i += 1
+                nums[i - numZeroes], nums[i] = num, nums[i - numZeroes]
