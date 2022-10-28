@@ -5,9 +5,9 @@ class Solution:
         ln1 = len(s1)
         for i, char in enumerate(s2):
             c2 += Counter(char)
+            if i >= ln1:
+                c2 -= Counter(s2[i - ln1])
             if c1 == c2:
                 return True
-            if i >= ln1 - 1:
-                c2[s2[i - ln1 + 1]] -= 1
         return False
             
