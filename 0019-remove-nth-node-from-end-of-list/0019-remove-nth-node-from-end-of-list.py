@@ -5,17 +5,14 @@
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        length = 0 # length
-        runner = head # runner to find length
-        while runner: # while the runner exists
-            length += 1 # add to the length
-            runner = runner.next # go to the next node
-        if length == n: # if we need to remove the first node
-            return head.next # remove it by returning the next node
-        runner = head # reset our runner
-        for i in range(length - n - 1): # until there are n nodes left in the linkedlist
-            runner = runner.next # move forward in the linkedlist
-        runner.next = runner.next.next # skip the next node (nth from the end)
-        return head # return the head
-        
+        slow = fast = head # slow and fast pointers –– fast will be n nodes ahead of slow
+        for i in range(n): # n times
+            fast = fast.next # move fast forward
+        if not fast: # if fast already is at the end then n == len(linkedlist), so remove the first node
+            return head.next # return second node in linkedlist
+        while fast.next: # while fast is not at the end of the linkedlist
+            fast = fast.next # move fast forward
+            slow = slow.next # move slow forward
+        slow.next = slow.next.next # now skip the nth node from the end
+        return head
         
