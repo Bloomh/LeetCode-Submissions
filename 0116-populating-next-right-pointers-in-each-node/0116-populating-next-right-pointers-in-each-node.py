@@ -16,6 +16,6 @@ class Solution:
             if node:
                 queue.append((level+1,node.left))
                 queue.append((level+1,node.right))
-                if queue and queue[0][0] == level:
+                if queue[0][0] == level:
                     node.next = queue[0][1]
         return root
