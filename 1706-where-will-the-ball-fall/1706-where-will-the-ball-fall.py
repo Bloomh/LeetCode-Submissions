@@ -1,11 +1,14 @@
 class Solution:
     def findBall(self, grid: List[List[int]]) -> List[int]:
-        def route(i,j):
-            if i>=len(grid):
-                return j
-            g = grid[i][j]
-            if (g == 1 and (j==len(grid[0])-1 or grid[i][j+1]==-1)) or (g == -1 and (j==0 or grid[i][j-1]==1)):
+        m = len(grid)
+        n = len(grid[0])
+        
+        def path(i,j):
+            direction = grid[i][j]
+            if not (0 <= j + direction < n and direction == grid[i][j+direction]):
                 return -1
-            return route(i+1,j+g)
-        return [route(0,x) for x in range(len(grid[0]))]
-                
+            if i == m-1:
+                return j + direction
+            return path(i+1, j+direction)
+        
+        return [path(0,i) for i in range(n)]
