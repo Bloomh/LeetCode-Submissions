@@ -1,15 +1,18 @@
 class Solution:
     def minMutation(self, start: str, end: str, bank: List[str]) -> int:
         q = collections.deque([(start,0)])
-        bank = set(bank)
         
         while q:
             gene, mutations = q.popleft()
             if gene == end:
                 return mutations
-            for bankgene in set(bank):
+            i = 0
+            while i < len(bank):
+                bankgene = bank[i]
                 if sum([x==y for (x,y) in zip(gene,bankgene)]) == 7:
                     q.append((bankgene, mutations+1))
                     bank.remove(bankgene)
+                else:
+                    i += 1
             
         return -1
