@@ -11,7 +11,7 @@ class Solution:
                 bankgene = bank[i]
                 if sum([x==y for (x,y) in zip(gene,bankgene)]) == 7:
                     q.append((bankgene, mutations+1))
-                    bank.remove(bankgene)
+                    bank.pop(i)
                 else:
                     i += 1
             
