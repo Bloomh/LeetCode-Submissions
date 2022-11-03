@@ -14,6 +14,5 @@ class Solution:
                         ans += 2*(c[word]-1) # the rest can be matched on the left/right
                 elif rev in c: # otherwise if the reverse is in our counter
                     ans += 4*min(c[word], c[rev]) # we can pair the word and its reverse (4 characters for a successful pair)
-                    c.pop(rev) # we looked at rev
                 c.pop(word) # we looked at word
         return ans + extra
