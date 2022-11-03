@@ -1,21 +1,18 @@
 class Solution:
     def longestPalindrome(self, words: List[str]) -> int:
+        c = Counter(words)
+        s = set(words)
+        extra = 0
         ans = 0
-        rep = 0
-        match = {}
-        for i in words:
-            if i in match and match[i]>0:
-                match[i] -= 1
-                if i[0] == i[1]:
-                    rep -= 1
-                ans += 4
-            else:
-                if i[::-1] in match:
-                    match[i[::-1]]+=1
+        for word in s:
+            rev = word[::-1]
+            if rev == word:
+                if c[word]%2 == 0:
+                    ans += 2*(c[word])
                 else:
-                    match[i[::-1]]=1
-                if i[0]==i[1]:
-                    rep += 1
-        if rep>0:
-            ans += 2
-        return ans
+                    extra = 2
+                    ans += 2*(c[word]-1)
+            elif rev in c:
+                ans += 4*min(c[word], c[rev])
+            c.pop(word)
+        return ans + extra
