@@ -1,16 +1,15 @@
 class Solution:
     def reverseBits(self, n: int) -> int:
-        # start with the answer being 
-        answer = 0
-        # we need to get all 32 bits
-        for _ in range(32):
-            # get the last bit of n by using n & 1
-            last_bit_of_n = n & 1
-            # shift all the bits in our answer to the left by 1 spot
-            answer = answer << 1
-            # add the last bit of n to the end of our answer using answer XOR last_bit_of_n
-            answer = answer ^ last_bit_of_n
-            # shift all the bits in n to the right by 1 spot
-            n = n >> 1
-        return answer
-            
+        # our result string will start empty
+        result = ""
+        # turn n into a binary string
+        binary = bin(n)[2:]
+        # add zeroes to the beginning of the binary string to make it 32 bits
+        binary = "0"*(32-len(binary)) + binary
+        # now we will use a for loop to iterate over the binary string backwards
+        # i will start at 31 and end up at 0, going backwards
+        for i in range(31,-1,-1): 
+            # add the last element of binary to result
+            result += binary[i]
+        # convert the resulting string to an integer
+        return int(result, 2)
