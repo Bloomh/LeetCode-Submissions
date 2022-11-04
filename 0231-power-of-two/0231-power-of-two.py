@@ -1,3 +1,4 @@
+pows = set(2**i for i in range(31))
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        return n > 0 and bin(n).count('1') == 1
+        return n in pows
