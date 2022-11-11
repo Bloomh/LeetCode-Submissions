@@ -15,9 +15,8 @@ class Solution:
             
             ans.extend(matrix[bot-1][lft:rght][::-1]) # add the bottom row in reverse order (right to left)
             bot -= 1 # bottom row is now a smaller index
+            
             ans.extend([matrix[row][lft] for row in range(bot-1,top-1,-1)]) # add the leftmost column in reverse order (bottom to top)
-            lft += 1
-            
-            
-        
-        return ans
+            lft += 1 # the left bound moves forward
+    
+        return ans # return the answer!
