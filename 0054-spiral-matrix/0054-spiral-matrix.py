@@ -6,12 +6,12 @@ class Solution:
         while top < bot and lft < rght: # while we still have area to cover
             ans.extend(matrix[top][lft:rght]) # add the top row
             top += 1 # the top of our range gets lower (by increasing index)
-            if top == bot:
-                return ans
+            
             ans.extend([matrix[row][rght-1] for row in range(top,bot)]) # add the rightmost column
             rght -= 1 # rightmost column becomes smaller index
-            if rght == lft:
-                return ans
+            
+            if top == bot or rght == lft: # if we no longer have any area to consider
+                return ans # return the answer
             
             ans.extend(matrix[bot-1][lft:rght][::-1]) # add the bottom row in reverse order (right to left)
             bot -= 1 # bottom row is now a smaller index
