@@ -10,8 +10,4 @@ class Solution:
                     return pref # return prefix
             return pref # return the prefix
         
-        prefix = strs.pop() # start with the first prefix
-        for s in strs: # for all the other indices
-            prefix = commonPrefix(prefix, s) # get the common prefix with that string
-        # by the end we will have gotten the longest common prefix among all strings!
-        return prefix
+        return reduce(commonPrefix, strs)
