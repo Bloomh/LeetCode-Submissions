@@ -1,13 +1,11 @@
 class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
-        # helper method to get the common prefix of two strings
-        def commonPrefix(str1, str2): 
-            pref = "" # start with empty prefix
-            for c1, c2 in zip(str1,str2): # get the characters in str1 and str2 in pairs (c1, c2)
-                if c1 == c2: # if the characters are equal
-                    pref += c1 # add to prefix
-                else: # otherwise we need to stop
-                    return pref # return prefix
-            return pref # return the prefix
-        
-        return reduce(commonPrefix, strs)
+    def longestCommonPrefix(self, strs: List[str]) -> str: 
+        prefix = "" # start with empty prefix
+        minLength = min(len(s) for s in strs) # store the minimum length of the strings
+        for i in range(minLength): #add until we hit the minimum length
+            prefix += strs[-1][i] # add the ith character from the last string (any would work)
+            for s in strs: # for all the strings in strs
+                if s[i] != prefix[-1]: # if the character doesn't match up
+                    return prefix[:-1] # return everything but the last character in prefix
+        # if we make it all the way with no issues then return the prefix
+        return prefix
