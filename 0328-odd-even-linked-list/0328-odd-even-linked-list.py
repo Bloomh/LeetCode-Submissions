@@ -9,8 +9,10 @@ class Solution:
             return None
         odds = firstOdd = head
         evens = firstEven = head.next
-        while evens and evens.next:
-            odds.next, evens.next = odds.next.next, evens.next.next
-            odds, evens = odds.next, evens.next
-        odds.next = firstEven
-        return firstOdd
+        while evens and evens.next: # while the even 
+            odds.next = odds.next.next
+            evens.next = evens.next.next
+            odds = odds.next
+            evens = evens.next
+        odds.next = firstEven # the last odd should point to the first even
+        return firstOdd # return the first odd (the first element in the list)
