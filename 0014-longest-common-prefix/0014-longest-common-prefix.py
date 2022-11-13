@@ -3,9 +3,8 @@ class Solution:
         prefix = "" # start with empty prefix
         minLength = min(len(s) for s in strs) # store the minimum length of the strings
         for i in range(minLength): #add until we hit the minimum length
-            prefix += strs[-1][i] # add the ith character from the last string (any would work)
-            for s in strs: # for all the strings in strs
-                if s[i] != prefix[-1]: # if the character doesn't match up
-                    return prefix[:-1] # return everything but the last character in prefix
-        # if we make it all the way with no issues then return the prefix
+            if len(set(s[i] for s in strs)) == 1: # if there is only 1 distinct character at this index out of all the strings
+                prefix += strs[0][i] # add the character to prefix
+            else: # otherwise we reach an issue – return the prefix
+                return prefix
         return prefix
