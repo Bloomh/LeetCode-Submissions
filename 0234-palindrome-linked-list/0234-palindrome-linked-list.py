@@ -5,18 +5,8 @@
 #         self.next = next
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        left, right = deque(), deque()
-        middle = head.val
-        head = head.next
+        vals = []
         while head:
-            if middle == None:
-                middle = right.popleft()
-            else:
-                left.append(middle)
-                middle = None
-            right.append(head.val)
+            vals.append(head.val)
             head = head.next
-        while left:
-            if left.pop() != right.popleft():
-                return False
-        return True
+        return all(vals[i] == vals[-i-1] for i in range(len(vals)//2))
