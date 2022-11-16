@@ -8,7 +8,7 @@
 class Solution:
     def guessNumber(self, n: int) -> int:
         l,r = 0,n # left and right pointers keep track of the range of guesses we are still considering ([l,r] inclusive)
-        while l <= r: # while [l,r] still contains valid area to search 
+        while True: # until we guess the right answer (since we are guaranteed to find it)
             mid = l+(r-l)//2 # find the middle of the range
             guess_result = guess(mid) # guess the middle
             if guess_result == 1: # if our guess is too small
