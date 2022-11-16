@@ -7,15 +7,15 @@
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-        l,r = 0,n # left and right pointers 
+        l,r = 0,n # left and right pointers keep 
         while l <= r:
             mid = l+(r-l)//2
             guess_result = guess(mid)
-            if guess_result == 0:
-                return mid
-            elif guess_result == 1:
+            if guess_result == 1:
                 l = mid + 1
-            else:
+            elif guess_result == -1:
                 r = mid - 1
+            else:
+                return mid
         return mid
         
