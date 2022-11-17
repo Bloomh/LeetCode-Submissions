@@ -11,7 +11,4 @@ class Solution:
                 yield from inorder(node.left) # yield values from the inorder traversal of nodes to the left of it
                 yield node.val # yield this value
                 yield from inorder(node.right) # yield values from the inorder traversal of nodes to the right of it
-        inorder_traversal = inorder(root) # 
-        for _ in range(k-1):
-            next(inorder_traversal)
-        return next(inorder_traversal)
+        return next(islice(inorder(root),k-1,k))
