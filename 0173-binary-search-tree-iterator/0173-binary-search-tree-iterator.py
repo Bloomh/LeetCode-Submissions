@@ -14,20 +14,15 @@ class BSTIterator:
 
                 yield from inorder(node.right) # yield values from the inorder traversal of nodes to the right of it
         self.inorder = inorder(root)
-        self.dq = deque([])
+        self.nxt = next(self.inorder)
 
     def next(self) -> int:
-        if self.dq:
-            return self.dq.pop()
-        else:
-            return next(self.inorder)
+        temp = self.nxt
+        self.nxt = next(self.inorder,None)
+        return temp
         
     def hasNext(self) -> bool:
-        try:
-            self.dq.appendleft(next(self.inorder))
-            return True
-        except:
-            return False
+        return self.nxt != None
         
 
 
