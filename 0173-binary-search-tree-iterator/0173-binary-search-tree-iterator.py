@@ -13,16 +13,16 @@ class BSTIterator:
                 yield node.val # yield this value
 
                 yield from inorder(node.right) # yield values from the inorder traversal of nodes to the right of it
-        self.inorder = inorder(root)
-        self.nxt = next(self.inorder)
+        self.inorder = inorder(root) # generator for the inorder traversal of the BST
+        self.nxt = next(self.inorder) # get the first value in the traversal
 
     def next(self) -> int:
-        temp = self.nxt
-        self.nxt = next(self.inorder,None)
-        return temp
+        nextval = self.nxt # store the next value
+        self.nxt = next(self.inorder,None) # update self.nxt to be the next value in the inorder traversal (or None if there are no more)
+        return nextval # return the next value 
         
     def hasNext(self) -> bool:
-        return self.nxt != None
+        return self.nxt != None # if the next value isn't None then we have more values
         
 
 
