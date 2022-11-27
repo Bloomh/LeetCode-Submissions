@@ -9,4 +9,4 @@ def power(x):
 
 class Solution:
     def getKth(self, lo: int, hi: int, k: int) -> int:
-        return heapq.nsmallest(k,range(lo,hi+1),key=power)[-1]
+        return sorted(range(lo,hi+1),key=power)[k-1]
