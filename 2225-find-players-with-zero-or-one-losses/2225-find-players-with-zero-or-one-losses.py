@@ -5,7 +5,7 @@ class Solution:
             dct[w] = dct[w]
             dct[l] += 1
         ans = [[],[]]
-        for key,val in sorted(dct.items()):
+        for key,val in dct.items():
             if val < 2:
                 ans[val].append(key)
-        return ans
+        return [sorted(lst) for lst in ans]
