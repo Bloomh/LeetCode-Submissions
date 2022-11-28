@@ -1,9 +1,8 @@
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        intervals.sort()
         curr = None
         ans = []
-        for s,e in intervals:
+        for s,e in sorted(intervals):
             if not curr:
                 curr = [s,e]
             elif s <= curr[1]:
