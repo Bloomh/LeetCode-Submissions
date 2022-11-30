@@ -3,7 +3,7 @@ class Solution:
         freq = {}
         s = set()
         for a in arr:
-            if a not in freq:
+            if a not in s:
                 freq[a] = 1
                 s.add(a)
             else:
