@@ -1,9 +1,11 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
+        if amount == 0:
+            return 0
         # we will use a list, dp, to keep track of the minimum number of coins needed
         # dp[i] will represent the minimum number of coins needed to sum to i
         # originally, every index from 1 to amount will need to be infinity since we have no way to sum
-        dp = [0]+[inf]*(amount)
+        dp = defaultdict(lambda: inf)
         
         # for every coin, we will update dp
         for c in coins:
