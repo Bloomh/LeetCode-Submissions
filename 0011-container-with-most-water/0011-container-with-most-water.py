@@ -7,18 +7,16 @@ class Solution:
         right = len(height)-1
         
         while left < right:
-            hl = height[left]
-            hr = height[right]
             # if the left height is bigger than the right height
-            if hl > hr:
+            if height[left] > height[right]:
                 # update the answer if the amount of water contained by these two heights is bigger
-                ans = max(ans, (right-left)*hr)
+                ans = max(ans, (right-left)*height[right])
                 # since the right height was smaller, let's change that pointer
                 # we don't want to change the left height since it was larger
                 right -= 1
             else:
                 # update the answer if the amount of water contained by these two heights is bigger
-                ans = max(ans, (right-left)*hl)
+                ans = max(ans, (right-left)*height[left])
                 # like before, we want to increase the left pointer now and hope that it will
                 # lead to a bigger height, thus leading to more water stored in the container
                 left += 1
