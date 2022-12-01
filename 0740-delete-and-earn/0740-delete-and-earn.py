@@ -7,10 +7,10 @@ class Solution:
             c[num] += 1
             m = max(num, m)
         
-        dp = [0]*(m+2)
+        dp = [0,c[1]]
         
-        for val in range(1,m+1):
-            dp[val+1] = max(dp[val], dp[val-1] + val*c[val])
+        for val in range(2,m+1):
+            dp.append(max(dp[val-1], dp[val-2] + val*c[val]))
 
         return dp[-1]
         
