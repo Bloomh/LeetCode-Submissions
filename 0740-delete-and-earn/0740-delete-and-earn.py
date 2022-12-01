@@ -1,10 +1,9 @@
 class Solution:
     def deleteAndEarn(self, nums: List[int]) -> int:
         c = defaultdict(int)
-        s = set()
         m = -inf
+        
         for num in nums:
-            s.add(num)
             c[num] += 1
             m = max(num, m)
         
