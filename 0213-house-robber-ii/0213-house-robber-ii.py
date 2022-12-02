@@ -8,11 +8,9 @@ class Solution:
             # we have 0 dollars after robbing no houses and nums[0] dollars after robbing the first house
             last_two = (0, nums[l])
             # go through the rest of the houses
-            while l < r - 1:
-                # add to our left pointer
-                l += 1
+            for i in range(l+1,r):
                 # if we rob this house
-                rob_this_house = nums[l] + last_two[0]
+                rob_this_house = nums[i] + last_two[0]
                 # if we dont
                 dont_rob_this_house = last_two[1]
                 # update the amt of money we could have gotten from the last two houses
