@@ -4,6 +4,7 @@ class Solution:
         if len(nums) == 1:
             return nums[0]
         
+        # helper method to find the maximum amount of money from robbing houses between nums[l] and nums[r-1]
         def r(l, r) -> int:
             # we have 0 dollars after robbing no houses and nums[0] dollars after robbing the first house
             last_two = (0, nums[l])
@@ -20,4 +21,5 @@ class Solution:
             return last_two[1]
         
         n = len(nums)
+        # since the first and last houses are connected, let's see if it is better to rob all the houses except the last one, or all the houses except the first one
         return max(r(0,n-1), r(1,n))
