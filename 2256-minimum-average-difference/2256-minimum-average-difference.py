@@ -1,15 +1,19 @@
 class Solution:
     def minimumAverageDifference(self, nums: List[int]) -> int:
         n = len(nums)
-        sums = list(accumulate(nums))
-        minDiff = sums[-1]
+        leftSum = 0
+        sumNums = sum(nums)
+        minDiff = inf
         ans = 0
         
         for i in range(n):
-            left = sums[i]//(i+1)
-            right = (sums[-1]-sums[i])//max(1,(n-i-1))
-            absDiff = abs(left - right)
+            leftSum += nums[i]
+            leftAvg = leftSum//(i+1)
+            rightAvg = (sumNums - leftSum)//max(1,n-i-1)
+            
+            absDiff = abs(leftAvg - rightAvg)
             if absDiff < minDiff:
                 minDiff = absDiff
                 ans = i
+        
         return ans
